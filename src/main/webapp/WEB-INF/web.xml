@@ -14,14 +14,4 @@
 	      org.apache.commons.fileupload.servlet.FileCleanerCleanup
 	    </listener-class>
   </listener>
-  <!-- <servlet>
-    <description></description>
-    <display-name>UploadStatus</display-name>
-    <servlet-name>UploadStatus</servlet-name>
-    <servlet-class>com.UploadStatus</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UploadStatus</servlet-name>
-    <url-pattern>/uploadStatus</url-pattern>
-  </servlet-mapping> -->
 </web-app>

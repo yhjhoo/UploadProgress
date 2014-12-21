@@ -8,10 +8,23 @@ $(document).ready(function() {
 		window.setTimeout("getProgressBar()", 1000);
 		$("#uploadForm").submit();
 	});
+	
+	
+	$("#fileTable").dataTable( {
+		"ajax": {
+			"url": "listFileServlet",
+			"dataSrc": ""
+		},
+		"columns": [
+			{ "data": "name" },
+			{ "data": "uploadedOn" },
+			{ "data": "fileSize" },
+			{ "data": "download" }
+		]
+	});
 });
 function getProgressBar() {
-	// $.getJSON("/uploadProgress/uploadStatus", {"t":timestamp}, function
-	// (json) {
+	var interval = window.setTimeout("getProgressBar()", 500);
 	$.ajax({
 		url : "./uploadStatus",
 		dataType : "json",
@@ -24,6 +37,11 @@ function getProgressBar() {
 
 				var percentage = Math.floor(100 * parseInt(data.read)/ parseInt(data.total));
 				$("#uploadprogressbar").progressBar(percentage);
+				if(percentage == 100){
+					reloadContentList();
+					$("#subButton").attr("disabled", false); 
+					clearTimeout(interval);
+				}
 			}
 			// $("#status").removeClass("loading");
 		},
@@ -32,6 +50,9 @@ function getProgressBar() {
 			$("#read").html("error happend!");
 			$("#total").html("error happend!");
 		}
-	});// */
-	var interval = window.setTimeout("getProgressBar()", 500);
+	});
+}
+
+function reloadContentList(){
+	$("#fileTable").dataTable()._fnAjaxUpdate();
 }
