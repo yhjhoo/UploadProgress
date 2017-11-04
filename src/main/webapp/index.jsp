@@ -19,7 +19,7 @@
     <legend>Upload your file</legend>
     <form action="./upload" enctype="multipart/form-data" method="post" id="uploadForm" target="target_upload">
         <input type="file" name="upload"/>
-        <input type="button" value="上传" id="subButton"/>
+        <input type="button" value="Upload" id="subButton"/>
     </form>
     <span id="uploadprogressbar" class="progressbar"></span>
     <iframe id='target_upload' name='target_upload' src='' style='display: none'></iframe>
