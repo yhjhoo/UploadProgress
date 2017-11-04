@@ -20,10 +20,7 @@ public class UploadListener implements ProgressListener {
             return;
         }
         megaBytes = mBytes;
-//		System.out.println("We are currently reading item " + pItems);
         if (pContentLength == -1) {
-            // System.out.println("So far, " + pBytesRead +
-            // " bytes have been read.");
             session.setAttribute("status", "So far, " + pBytesRead + " of "
                     + pContentLength + " bytes have been read.");
             session.setAttribute("read", pBytesRead);
@@ -36,7 +33,5 @@ public class UploadListener implements ProgressListener {
             session.setAttribute("read", pBytesRead);
             session.setAttribute("total", pContentLength);
         }
-
     }
-
 }

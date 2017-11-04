@@ -14,19 +14,9 @@ import java.io.IOException;
 /**
  * Servlet implementation class UploadStatus
  */
-
-
 @WebServlet("/uploadStatus")
 public class UploadStatus extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
-    /**
-     * Default constructor.
-     */
-    public UploadStatus() {
-        // TODO Auto-generated constructor stub
-    }
-
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
@@ -34,22 +24,17 @@ public class UploadStatus extends HttpServlet {
         HttpSession session = request.getSession();
         try {
             response.reset();
-//			JSONArray array = new JSONArray();
             JSONObject obj = new JSONObject();
             obj.put("status", session.getAttribute("status"));
             obj.put("read", session.getAttribute("read"));
             obj.put("total", session.getAttribute("total"));
-//			array.add(obj);
 
             response.getWriter().print(obj);
-//			response.getWriter().write("{\"pBytesRead\":"
-//					+status.getPBytesRead()+",\"pContentLength\":"+status.getPContentLength()+"}");
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
-
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */

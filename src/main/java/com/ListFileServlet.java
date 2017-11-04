@@ -48,10 +48,6 @@ public class ListFileServlet extends HttpServlet {
         }
 
         File[] listFiles = dir.listFiles();
-
-//		FileUtils fu = new FileUtils();
-//		Collection<File> listFiles = fu.listFiles(dir, new String[]{}, false);
-
         JSONArray jsonArray = new JSONArray();
         for (File file : listFiles) {
             log.info("fileName:" + file.getName());
@@ -104,8 +100,5 @@ public class ListFileServlet extends HttpServlet {
         }
 
         return bytes + "B";
-
-
     }
-
 }
